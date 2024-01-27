@@ -1,2 +1,2 @@
 # FLow Design
-!(Layout)[cCTGAN_layout.jpg]
+![Layout][cCTGAN_layout.jpg]
