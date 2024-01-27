@@ -1,0 +1,3 @@
+src/tables/*.parquet
+se_env/*
+!se_env/.gitkeep
