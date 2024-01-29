@@ -5,8 +5,10 @@ from sklearn.preprocessing import MinMaxScaler
 import dask.dataframe as dpd
 from dask.diagnostics import ProgressBar
 from sdv.single_table import CTGANSynthesizer
+from dask.distributed import Client
 from tqdm.auto import tqdm, trange
 import yaml
+from .logger import Logger
 
 np.random.seed(0)
 
@@ -16,17 +18,26 @@ def load_and_scale(file_path, xy_scaled, scale=False):
         df[['x', 'y']] = xy_scaled
     return df
 
-def events_sample_concat(coord_gdf, sample_event_num=50):
-    event_indices = np.random.choice(range(593), sample_event_num, replace=False)
+def events_sample_concat(coord_gdf, sample_event_num=50, n_workers=100):
+    # Create a Dask client
+    client = Client(n_workers=n_workers)
 
-    scaler = MinMaxScaler()
-    xy_scaled = scaler.fit_transform(coord_gdf[['x', 'y']])
-    file_paths = [f'../src/tables/data{i}.parquet' for i in event_indices]
-    selected_events = [load_and_scale(file, xy_scaled, scale=True) for file in file_paths]
-    with ProgressBar():
-        result = dpd.concat(selected_events, axis=0)
-    selected_events_df = result.compute()
-    selected_events_df = selected_events_df.drop(columns=['channel', 'ter', 'depth'])
+    try:
+        event_indices = np.random.choice(range(593), sample_event_num, replace=False)
+        scaler = MinMaxScaler()
+        xy_scaled = scaler.fit_transform(coord_gdf[['x', 'y']])
+        file_paths = [f'src/tables/data{i}.parquet' for i in event_indices]
+        selected_events = [load_and_scale(file, xy_scaled, scale=True) for file in file_paths]
+        
+        with ProgressBar():
+            result = dpd.concat(selected_events, axis=0)
+        selected_events_df = result.compute()
+        selected_events_df = selected_events_df.drop(columns=['channel', 'ter', 'depth'])
+
+    finally:
+        # Close the Dask client
+        client.close()
+
     return selected_events_df
 
 x_bounds_constraints = {
@@ -65,6 +76,7 @@ positive_constraints = [{
 } for col in ['cumu_rain', 'peak_int']]
 
 def cCTGAN_modeling(real_df, metadata, config, constraint=False, train=False):
+    logger = Logger('logs/cCTGAN_model.log')
     lr_sets = config['gan_lr_sets']
     for lrs in tqdm(lr_sets, total=len(lr_sets)):
         for epoch in range(50, config['gan_epochs']+1, 50):
@@ -84,7 +96,8 @@ def cCTGAN_modeling(real_df, metadata, config, constraint=False, train=False):
                     )
                 if train:
                     # train ctgan
+                    logger.log_info(f'Start traing...')
                     ctgan_synthesizer.fit(real_df)
                     ctgan_synthesizer.save(checkpoint_path)
             except Exception as e:
-                print(e)
+                logger.log_error(f"Error occurred during CTGAN modeling: {e}", exc_info=True)
