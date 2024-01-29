@@ -8,6 +8,7 @@ from sdv.single_table import CTGANSynthesizer
 from dask.distributed import Client
 from tqdm.auto import tqdm, trange
 import yaml
+import torch
 from .logger import Logger
 
 np.random.seed(0)
@@ -76,6 +77,7 @@ positive_constraints = [{
 } for col in ['cumu_rain', 'peak_int']]
 
 def cCTGAN_modeling(real_df, metadata, config, constraint=False, train=False):
+    torch.cuda.set_device(0)
     logger = Logger('logs/cCTGAN_model.log')
     lr_sets = config['gan_lr_sets']
     for lrs in tqdm(lr_sets, total=len(lr_sets)):
@@ -84,7 +86,7 @@ def cCTGAN_modeling(real_df, metadata, config, constraint=False, train=False):
                 checkpoint_path = f'checkpoints/cCGTAN/{lrs[0]}_{lrs[1]}_{epoch+1}.pkl'
                 ctgan_synthesizer = CTGANSynthesizer(metadata, epochs=epoch, 
                                                     cuda=True, verbose=True, enforce_rounding=False, 
-                                                    batch_size=512, generator_lr=lrs[0], discriminator_lr=lrs[1])
+                                                    batch_size=config['gan_batch_size'], generator_lr=lrs[0], discriminator_lr=lrs[1])
                 if constraint:
                     ctgan_synthesizer.load_custom_constraint_classes(
                         filepath = 'models/cCTGAN.py',
