@@ -4,3 +4,4 @@ se_env/*
 *.pth
 *.log
 *.ipynb_checkpoints
+*.pkl
