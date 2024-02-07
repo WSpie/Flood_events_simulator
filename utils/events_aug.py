@@ -84,10 +84,10 @@ def cCTGAN_modeling(real_df, metadata, config, constraint=False, train=False):
     for lrs in tqdm(lr_sets, total=len(lr_sets)):
         for epoch in range(50, config['gan_epochs']+1, 50):
             try:
-                checkpoint_path = f'checkpoints/cCTGTAN/{lrs[0]}_{lrs[1]}_{epoch+1}.pkl'
+                checkpoint_path = f'checkpoints/cCTGAN/{lrs[0]}_{lrs[1]}_{epoch+1}.pkl'
                 ctgan_synthesizer = CTGANSynthesizer(metadata, epochs=epoch, 
                                                     cuda=True, verbose=True, enforce_rounding=False, 
-                                                    batch_size=config['gan_batch_size'], generator_lr=lrs[0], discriminator_lr=lrs[1])
+                                                    batch_size=config['gan_batch_size'], generator_lr=float(lrs[0]), discriminator_lr=float(lrs[1]))
                 if constraint:
                     ctgan_synthesizer.load_custom_constraint_classes(
                         filepath = 'models/cCTGAN.py',

@@ -5,3 +5,7 @@ se_env/*
 *.log
 *.ipynb_checkpoints
 *.pkl
+*.temp
+nbks/iframe_figures/*
+*.tar
+outputs/augmented_data/*.parquet
