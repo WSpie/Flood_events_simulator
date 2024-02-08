@@ -10,3 +10,4 @@ nbks/iframe_figures/*
 *.tar
 outputs/augmented_data/*.parquet
 outputs/aggregated_syn_events.parquet
+outputs/coord_w_syn_distributions.parquet
