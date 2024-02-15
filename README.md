@@ -16,5 +16,5 @@ For each cell:
     - Yes: Move rows into the determined class pool.
     - No: Drop.
 - 3. When creating determined class events, random sample the rows from their corresponding pools.
-    - *: if the pool size of specific rows is lower than the average size, add slight noise when sampling. 
+    - * if the pool size of specific rows is lower than the average size, add slight noise when sampling. 
 ![Syn](Events_distributions_processing_layout_syn.jpg)
