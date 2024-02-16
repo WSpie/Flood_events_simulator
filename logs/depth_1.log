@@ -1,0 +1,106 @@
+Epoch 0: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 3.3634
+Epoch 1: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 3.1349
+Epoch 2: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.9814
+Epoch 3: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.8811
+Epoch 4: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.8232
+Epoch 5: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.7896
+Epoch 6: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.7694
+Epoch 7: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.7601
+Epoch 8: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.7531
+Epoch 9: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.7494
+Epoch 10: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.7412
+Epoch 11: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.7408
+Epoch 12: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.7360
+Epoch 13: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.7350
+Epoch 14: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.7321
+Epoch 15: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.7313
+Epoch 16: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.7298
+Epoch 17: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.7268
+Epoch 20: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.7225
+Epoch 22: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.7220
+Epoch 23: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.7195
+Epoch 24: Test loss 2.7184
+Epoch 26: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.7177
+Epoch 28: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.7160
+Epoch 32: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.7160
+Epoch 34: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.7128
+Epoch 39: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.7121
+Epoch 40: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.7112
+Epoch 42: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.7078
+Epoch 46: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.7071
+Epoch 48: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.7070
+Epoch 49: Test loss 2.7125
+Epoch 50: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.7067
+Epoch 54: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.7035
+Epoch 55: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.7018
+Epoch 62: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.7001
+Epoch 63: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6983
+Epoch 72: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6959
+Epoch 73: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6956
+Epoch 74: Test loss 2.6952
+Epoch 77: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6930
+Epoch 82: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6925
+Epoch 87: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6915
+Epoch 91: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6908
+Epoch 99: Test loss 2.6913
+Epoch 104: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6901
+Epoch 107: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6888
+Epoch 108: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6887
+Epoch 114: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6878
+Epoch 119: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6862
+Epoch 121: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6858
+Epoch 124: Test loss 2.6848
+Epoch 130: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6850
+Epoch 136: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6832
+Epoch 145: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6831
+Epoch 149: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6830
+Epoch 149: Test loss 2.6818
+Epoch 150: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6818
+Epoch 153: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6815
+Epoch 158: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6815
+Epoch 165: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6805
+Epoch 169: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6803
+Epoch 170: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6788
+Epoch 174: Test loss 2.6802
+Epoch 183: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6785
+Epoch 191: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6773
+Epoch 197: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6772
+Epoch 198: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6763
+Epoch 199: Test loss 2.6765
+Epoch 203: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6762
+Epoch 208: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6758
+Epoch 210: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6752
+Epoch 212: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6752
+Epoch 216: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6746
+Epoch 217: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6743
+Epoch 223: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6737
+Epoch 224: Test loss 2.6739
+Epoch 226: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6734
+Epoch 227: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6734
+Epoch 233: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6727
+Epoch 240: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6722
+Epoch 249: Test loss 2.6717
+Epoch 256: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6710
+Epoch 262: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6707
+Epoch 263: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6703
+Epoch 271: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6700
+Epoch 274: Test loss 2.6725
+Epoch 280: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6689
+Epoch 286: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6688
+Epoch 289: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6687
+Epoch 299: Test loss 2.6733
+Epoch 302: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6684
+Epoch 303: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6677
+Epoch 311: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6672
+Epoch 317: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6667
+Epoch 318: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6666
+Epoch 324: Test loss 2.6666
+Epoch 325: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6665
+Epoch 326: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6664
+Epoch 332: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6660
+Epoch 333: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6654
+Epoch 345: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6651
+Epoch 348: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6648
+Epoch 349: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6648
+Epoch 349: Test loss 2.6636
+Epoch 352: Saved model to ../checkpoints/depth/best_model_0_1e-05.pth with val loss 2.6642

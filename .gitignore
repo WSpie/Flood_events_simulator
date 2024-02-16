@@ -2,7 +2,6 @@ src/tables/*.parquet
 se_env/*
 !se_env/.gitkeep
 *.pth
-*.log
 *.ipynb_checkpoints
 *.pkl
 *.temp

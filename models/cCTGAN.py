@@ -4,7 +4,7 @@ import pandas as pd
 def is_valid_ieq(column_names, data):
     # Assuming column_names[0] = 'cumu_rain', column_names[1] = 'peak_int', column_names[2] = 'duration'
     # Check if peak_int >= cumu_rain / duration for each row
-    validity = data[column_names[1]] >= data[column_names[0]] / data[column_names[2]]
+    validity = data[column_names[1]] >= (data[column_names[0]] / data[column_names[2]])
     return pd.Series(validity)
 
 def transform_fn_ieq(column_names, data):

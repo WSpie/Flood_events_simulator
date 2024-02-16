@@ -1,0 +1,35 @@
+2024-02-15 23:02:46 - INFO - [1/6] [Epoch: 50]: 1e-05_1e-05_51
+2024-02-15 23:02:46 - INFO - Start training...
+2024-02-15 23:02:51 - INFO - Fitting table None metadata
+2024-02-15 23:02:51 - INFO - Fitting formatters for table None
+2024-02-15 23:02:51 - INFO - Fitting constraints for table None
+2024-02-15 23:03:04 - INFO - Unable to transform Positive with columns ['cumu_rain'] because they are not all available in the data. This happens due to multiple, overlapping constraints.
+2024-02-15 23:03:04 - INFO - Unable to transform CustomConstraint with columns ['cumu_rain', 'peak_int', 'duration'] due to an error in transform: 
+'peak_int'
+Using the reject sampling approach instead.
+2024-02-15 23:03:04 - INFO - Setting the configuration for the ``HyperTransformer`` for table None
+2024-02-15 23:05:35 - INFO - [1/6] [Epoch: 50]: 1e-05_1e-05_51
+2024-02-15 23:05:35 - INFO - Start training...
+2024-02-15 23:05:35 - INFO - {
+    "columns": {
+        "x": {
+            "sdtype": "numerical"
+        },
+        "y": {
+            "sdtype": "numerical"
+        },
+        "cumu_rain": {
+            "sdtype": "numerical"
+        },
+        "peak_int": {
+            "sdtype": "numerical"
+        },
+        "duration": {
+            "sdtype": "numerical"
+        }
+    },
+    "METADATA_SPEC_VERSION": "SINGLE_TABLE_V1"
+}
+2024-02-15 23:05:40 - INFO - Fitting table None metadata
+2024-02-15 23:05:40 - INFO - Fitting formatters for table None
+2024-02-15 23:05:40 - INFO - Fitting constraints for table None
