@@ -1,6 +1,6 @@
 The final objective of this project is to generate depth distribution for each cell mesh given different preipitation criteria.
 # Flow Design
-![Layout](cCTGAN_layout.jpg)
+![Layout](images/layouts/cCTGAN_layout.jpg)
 ## Depth estimator training
 Train a regression transformer to estimate the depth by 592 real events involving `channel`, `terrain`, `precipitation-based features` and `region-based features` (optional).
 ## cCTGAN modeling
@@ -18,7 +18,7 @@ For the optimal checkpoint, concatenate the synthetic precipitation-based featur
 After that, we will form separated synthetic events by following methods.
 # Synthetic events separation Design
 ## Real events part
-![Real](Events_distributions_processing_layout_real.jpg)
+![Real](images/layouts/Events_distributions_processing_layout_real.jpg)
 For each cell:
 - 1: Get distributions of `cumu_rain`, `peak_int`, and `duration`.
 - 2: Determine Levels: [Low, Medium, High] for each distribution by:
@@ -28,7 +28,7 @@ For each cell:
 
 
 ## Synthetic events part
-![Syn](Events_distributions_processing_layout_syn.jpg)
+![Syn](images/layouts/Events_distributions_processing_layout_syn.jpg)
 For each cell:
 - 1: Separate each distribution into 3 segments by determined real thresholds
 - 2: Check if rows filling in the overlapping of the determined class among 3 distributions
