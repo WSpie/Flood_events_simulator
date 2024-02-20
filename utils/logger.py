@@ -1,5 +1,5 @@
-import logging
 import os
+import logging
 
 class Logger:
     def __init__(self, log_file, level=logging.INFO):
@@ -28,3 +28,6 @@ class Logger:
 
     def log_info(self, message):
         logging.info(message)
+    
+    def log_critical(self, message):
+        logging.critical(message)

@@ -2,6 +2,6 @@
 export OPENBLAS_NUM_THREADS=300
 
 # Check the current setting
-echo $OPENBLAS_NUM_THREADS
+echo "OPENBLAS_NUM_THREADS=$OPENBLAS_NUM_THREADS"
 
 python ctgan_model.py

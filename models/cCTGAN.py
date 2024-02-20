@@ -17,7 +17,7 @@ def transform_fn_ieq(column_names, data):
         # # Modify peak_int to ensure it's >= cumu_rain / duration
         transformed_data = data.copy()
         transformed_data['ieq'] = data[column_names[0]]
-        transformed_data['ieq'] = data[column_names[0]].div(data[column_names[-1]].add(1e-6))
+        transformed_data['ieq'] = data[column_names[0]] / (data[column_names[-1]] + 1e-6)
         transformed_data[column_names[1]] = transformed_data[[column_names[1], 'ieq']].max(axis=1)
         data[column_names[1]] = transformed_data[column_names[1]]
         return data

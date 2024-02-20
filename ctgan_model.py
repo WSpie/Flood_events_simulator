@@ -127,13 +127,14 @@ inequalty_constraints = {
     'constraint_class': 'Inequality',
     'constraint_parameters': {
         'low_column_name': 'peak_int',
-        'high_column_name': 'cumu_rain'
+        'high_column_name': 'cumu_rain',
+        'strict_boundaries': False
     }
 }
 
 
 def filter_rows_by_condition(df):
-    return df[(df['peak_int'] >= df['cumu_rain'] / df['duration']) & (df['cumu_rain'] >= df['peak_int'])]
+    return df[(df['peak_int'] > df['cumu_rain'] / (df['duration'] + 1e-6)) & (df['cumu_rain'] > df['peak_int'])]
 
 ctgan_logger = Logger('logs/cCTGAN_model.log')
 
@@ -143,7 +144,7 @@ for lr_id, lrs in tqdm(enumerate(lr_sets), total=len(lr_sets)):
             ctgan_logger.log_info(f'[{lr_id+1}/{len(lr_sets)}] [Epoch: {epoch}]: {lrs[0]}_{lrs[1]}_{epoch+1}')
             ctgan_synthesizer = CTGANSynthesizer(metadata, epochs=epoch, 
                                                 cuda=True, verbose=True, enforce_rounding=False, 
-                                                batch_size=5000, generator_lr=lrs[0], discriminator_lr=lrs[1])
+                                                batch_size=10000, generator_lr=lrs[0], discriminator_lr=lrs[1])
             ctgan_synthesizer.load_custom_constraint_classes(
                 filepath = 'models/cCTGAN.py',
                 class_names = ['PeakIntConstraintClass']
@@ -155,19 +156,21 @@ for lr_id, lrs in tqdm(enumerate(lr_sets), total=len(lr_sets)):
                 
             )
             # train ctgan
-            ctgan_logger.log_info('Start training...')
+            ctgan_logger.log_critical('Start training...')
             ctgan_synthesizer.fit(selected_events_df)
             ctgan_synthesizer.save(f'checkpoints/cCTGAN/{lrs[0]}_{lrs[1]}_{epoch+1}.pkl')
-            ctgan_logger.log_info('Generating events...')
+            ctgan_logger.log_critical('Generating events...')
             filtered_df_path = f'outputs/augmented_data/{lrs[0]}_{lrs[1]}_{epoch}.parquet'
-            ctgan_synthetic_df = ctgan_synthesizer.sample(num_rows=5000000, batch_size=5000)
+            ctgan_synthetic_df = ctgan_synthesizer.sample(num_rows=10000000, batch_size=10000)
             ctgan_synthetic_df[['x', 'y']] = scaler.inverse_transform(ctgan_synthetic_df[['x', 'y']])
+            ctgan_synthetic_df['duration'] = ctgan_synthetic_df['duration'].round()
+            ctgan_synthetic_df.loc[ctgan_synthetic_df['duration'] == 0, ['cumu_rain', 'peak_int']] = 0
             ctgan_synthetic_gdf = gpd.GeoDataFrame(
                 ctgan_synthetic_df, 
                 geometry=gpd.points_from_xy(ctgan_synthetic_df.x, ctgan_synthetic_df.y),
                 crs=coord_gdf.crs
             )
-            ctgan_logger.log_info('Filtering...')
+            ctgan_logger.log_critical('Filtering...')
             ctgan_synthetic_inbound_df = ctgan_synthetic_gdf.sjoin(coord_union_gdf, predicate='within').drop(columns=['geometry', 'index_right'])
             ctgan_synthetic_inbound_df = filter_rows_by_condition(ctgan_synthetic_inbound_df).reset_index(drop=True)
             ctgan_synthetic_inbound_df.to_parquet(filtered_df_path)
