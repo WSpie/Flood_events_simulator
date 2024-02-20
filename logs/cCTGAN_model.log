@@ -1,7 +1,6 @@
-2024-02-19 22:38:55 - INFO - [1/6] [Epoch: 50]: 1e-05_1e-05_51
-2024-02-19 22:38:55 - INFO - Start training...
-2024-02-19 22:39:00 - INFO - Fitting table None metadata
-2024-02-19 22:39:00 - INFO - Fitting formatters for table None
-2024-02-19 22:39:00 - INFO - Fitting constraints for table None
-2024-02-19 22:39:14 - INFO - Setting the configuration for the ``HyperTransformer`` for table None
-2024-02-19 22:39:28 - INFO - Fitting HyperTransformer for table None
+2024-02-19 23:29:40 - INFO - [1/6] [Epoch: 50]: 1e-05_1e-05_51
+2024-02-19 23:29:40 - INFO - Start training...
+2024-02-19 23:29:45 - INFO - Fitting table None metadata
+2024-02-19 23:29:45 - INFO - Fitting formatters for table None
+2024-02-19 23:29:45 - INFO - Fitting constraints for table None
+2024-02-19 23:29:59 - INFO - Setting the configuration for the ``HyperTransformer`` for table None
