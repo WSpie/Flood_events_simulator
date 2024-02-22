@@ -1,13 +1,13 @@
 gan_train_event_num: 50
-gan_batch_size: 5000
+gan_batch_size: 10000
 gan_epochs: 300
 gan_lr_sets: [
     # G, D
-    [1e-5, 1e-5],
-    [2e-5, 1e-5],
-    [1e-4, 1e-4],
-    [2e-4, 1e-4],
-    [1e-3, 1e-3],
-    [2e-3, 1e-3]
+    [1.0e-5, 1.0e-5],
+    [2.0e-5, 1.0e-5],
+    [1.0e-4, 1.0e-4],
+    [2.0e-4, 1.0e-4],
+    [1.0e-3, 1.0e-3],
+    [2.0e-3, 1.0e-3]
 ]
 n_workers: 10

@@ -141,7 +141,7 @@ ctgan_logger = Logger('logs/cCTGAN_model.log')
 for lr_id, lrs in tqdm(enumerate(lr_sets), total=len(lr_sets)):
     for epoch in range(50, 301, 50):
         try:
-            ctgan_logger.log_info(f'[{lr_id+1}/{len(lr_sets)}] [Epoch: {epoch}]: {lrs[0]}_{lrs[1]}_{epoch+1}')
+            ctgan_logger.log_info(f'[{lr_id+1}/{len(lr_sets)}] [Epoch: {epoch}]: {lrs[0]:.0e}_{lrs[1]:.0e}_{epoch+1}')
             ctgan_synthesizer = CTGANSynthesizer(metadata, epochs=epoch, 
                                                 cuda=True, verbose=True, enforce_rounding=False, 
                                                 batch_size=10000, generator_lr=lrs[0], discriminator_lr=lrs[1])
@@ -158,13 +158,15 @@ for lr_id, lrs in tqdm(enumerate(lr_sets), total=len(lr_sets)):
             # train ctgan
             ctgan_logger.log_critical('Start training...')
             ctgan_synthesizer.fit(selected_events_df)
-            ctgan_synthesizer.save(f'checkpoints/cCTGAN/{lrs[0]}_{lrs[1]}_{epoch+1}.pkl')
+            ctgan_synthesizer.save(f'checkpoints/cCTGAN/{lrs[0]:.0e}_{lrs[1]:.0e}_{epoch+1}.pkl')
             ctgan_logger.log_critical('Generating events...')
-            filtered_df_path = f'outputs/augmented_data/{lrs[0]}_{lrs[1]}_{epoch}.parquet'
+            filtered_df_path = f'outputs/augmented_data/{lrs[0]:.0e}_{lrs[1]:.0e}_{epoch}.parquet'
             ctgan_synthetic_df = ctgan_synthesizer.sample(num_rows=10000000, batch_size=10000)
             ctgan_synthetic_df[['x', 'y']] = scaler.inverse_transform(ctgan_synthetic_df[['x', 'y']])
             ctgan_synthetic_df['duration'] = ctgan_synthetic_df['duration'].round()
             ctgan_synthetic_df.loc[ctgan_synthetic_df['duration'] == 0, ['cumu_rain', 'peak_int']] = 0
+            ctgan_synthetic_df = ctgan_synthetic_df[~((ctgan_synthetic_df['cumu_rain'] != ctgan_synthetic_df['peak_int']) & (ctgan_synthetic_df['duration'] == 1))]
+            ctgan_synthetic_df = ctgan_synthetic_df[~((ctgan_synthetic_df['cumu_rain'] == ctgan_synthetic_df['peak_int']) & (ctgan_synthetic_df['duration'] > 1))]
             ctgan_synthetic_gdf = gpd.GeoDataFrame(
                 ctgan_synthetic_df, 
                 geometry=gpd.points_from_xy(ctgan_synthetic_df.x, ctgan_synthetic_df.y),

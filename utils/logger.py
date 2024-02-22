@@ -2,7 +2,7 @@ import os
 import logging
 
 class Logger:
-    def __init__(self, log_file, level=logging.INFO):
+    def __init__(self, log_file, level=logging.CRITICAL):
         self.log_file = log_file
         self.level = level
         self.configure_logging()
