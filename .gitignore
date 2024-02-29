@@ -12,3 +12,5 @@ outputs/aggregated_syn_events.parquet
 outputs/coord_w_syn_distributions.parquet
 debug.ipynb
 outputs/coord_gdf_w_pool*
+outputs/syn_events/*
+outputs/vis/*
