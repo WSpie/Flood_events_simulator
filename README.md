@@ -8,8 +8,8 @@ Random sample 50 real events to train CTGAN with features: `x`, `y`, `cumu_rain`
 
 Add constraints: 
 - Positive constraints
-- Inequalty constraints: `cumu_rain` $\leq$ `peak_int`
-- Custimized logic: `peak_int` $\leq$ `cumu_rain` / `duration`
+- Inequalty constraints: `cumu_rain` $\geq$ `peak_int`
+- Custimized logic: `peak_int` $\geq$ `cumu_rain` / `duration`
 Save checkpoints for each pair of D/G learning rates and every 50 epochs and generate 5,000,00 samples each for grid search.
 ## Synthetic depth generation
 For the optimal checkpoint, concatenate the synthetic precipitation-based features and cooresponding spatial features to predict synthetic depth by trained depth estimator. 
