@@ -14,3 +14,6 @@ debug.ipynb
 outputs/coord_gdf_w_pool*
 outputs/syn_events/*
 outputs/vis/*
+*.mod
+*.zip
+*.rar

@@ -8,8 +8,8 @@ Random sample 50 real events to train CTGAN with features: `x`, `y`, `cumu_rain`
 
 Add constraints: 
 - Positive constraints
-- Inequalty constraints: `cumu_rain` $\leq$ `peak_int`
-- Custimized logic: `peak_int` $\leq$ `cumu_rain` / `duration`
+- Inequalty constraints: `cumu_rain` $\geq$ `peak_int`
+- Custimized logic: `peak_int` $\geq$ `cumu_rain` / `duration`
 Save checkpoints for each pair of D/G learning rates and every 50 epochs and generate 5,000,00 samples each for grid search.
 ## Synthetic depth generation
 For the optimal checkpoint, concatenate the synthetic precipitation-based features and cooresponding spatial features to predict synthetic depth by trained depth estimator. 
@@ -17,7 +17,8 @@ For the optimal checkpoint, concatenate the synthetic precipitation-based featur
 
 After that, we will form separated synthetic events by following methods.
 # Synthetic events separation Design
-## Real events part
+
+## Real events distribution determination
 ![Real](images/layouts/Events_distributions_processing_layout_real.jpg)
 For each cell:
 - 1: Get distributions of `cumu_rain`, `peak_int`, and `duration`.
@@ -27,7 +28,7 @@ For each cell:
   - 2.3: High: $> mean + coef_2 \cdot std$
 
 
-## Synthetic events part
+## Synthetic events distribution control
 ![Syn](images/layouts/Events_distributions_processing_layout_syn.jpg)
 For each cell:
 - 1: Separate each distribution into 3 segments by determined real thresholds
@@ -36,5 +37,8 @@ For each cell:
     - No: Drop.
 - 3: When creating determined class events, random sample the rows from their corresponding pools.
     - *: if the pool size of specific rows is lower than the average size, add slight noise when sampling. 
+
+## Synthetic events generation and purification
+![Syn Events](images/layouts/Syn_events_gen.jpg)
 
 
